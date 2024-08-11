@@ -1,5 +1,6 @@
 package ma.enset.springsecurity.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -9,14 +10,10 @@ import ma.enset.springsecurity.entities.AppUser;
 import ma.enset.springsecurity.repositories.AppUserRepository;
 
 @Service
+@AllArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 
     private final AppUserRepository userRepository;
-
-    @Autowired
-    public CustomUserDetailsService(AppUserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
